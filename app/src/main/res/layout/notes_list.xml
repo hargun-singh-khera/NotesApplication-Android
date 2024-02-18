@@ -2,10 +2,11 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
-    android:layout_marginTop="30dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="12dp"
     android:layout_marginLeft="15dp"
     android:layout_marginRight="15dp"
+    android:layout_marginBottom="12dp"
     app:cardElevation="10dp"
     app:cardCornerRadius="15dp"
     android:orientation="vertical"
@@ -31,6 +32,7 @@
             android:layout_height="wrap_content"
             android:text="Notes Desc"
             android:layout_marginTop="45dp"
+            android:paddingBottom="12dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp" />
 
@@ -43,7 +45,7 @@
             android:layout_marginRight="45dp"
             android:backgroundTint="@color/white"
             app:tint="@color/design_default_color_primary"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="6dp" />
 
         <ImageButton
             android:id="@+id/btnDelete"
@@ -54,7 +56,7 @@
             android:backgroundTint="@color/white"
             app:tint="@color/design_default_color_primary"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="6dp" />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

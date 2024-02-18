@@ -1,49 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FirstFragment">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/btnSignIn"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_margin="30dp"
-        app:cardCornerRadius="25sp"
-        app:cardElevation="5dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:layout_height="match_parent">
 
-        <RelativeLayout
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Access your notes."
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wherever, Whenever"
+            android:textSize="18sp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="2dp"
+            android:layout_below="@+id/tv1" />
+
+        <ImageView
+            android:id="@+id/iv"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="500dp"
+            android:layout_below="@+id/tv2"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/img3" />
 
-            <ImageView
-                android:id="@+id/imgGoogleLogo"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:src="@drawable/img2"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="9dp"
-                android:layout_marginBottom="9dp"
-                android:layout_marginRight="20dp"/>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="30dp"
+            android:layout_below="@+id/iv"
+            app:cardCornerRadius="28sp"
+            app:cardElevation="2dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sign in with Google"
-                android:layout_toRightOf="@+id/imgGoogleLogo"
-                android:textSize="22sp"
-                android:textColor="@color/black"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="11dp"
-                android:layout_marginBottom="9dp"
-                android:layout_marginRight="20dp"/>
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:id="@+id/imgGoogleLogo"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/img2"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginBottom="9dp"
+                    android:layout_marginRight="20dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sign in with Google"
+                    android:layout_toRightOf="@+id/imgGoogleLogo"
+                    android:textSize="21sp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginRight="20dp"/>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</ScrollView>

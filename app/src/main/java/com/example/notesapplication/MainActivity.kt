@@ -15,13 +15,13 @@ class MainActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        if (auth.currentUser != null) {
-            Toast.makeText(this, auth.currentUser.toString(), Toast.LENGTH_SHORT).show()
-            replaceFrameWithFragment(SecondFragment())
-        }
-        else {
+//        if (auth.currentUser != null) {
+//            Toast.makeText(this, auth.currentUser.toString(), Toast.LENGTH_SHORT).show()
+//            replaceFrameWithFragment(SecondFragment())
+//        }
+//        else {
             replaceFrameWithFragment(FirstFragment())
-        }
+//        }
     }
     internal fun replaceFrameWithFragment(frag: Fragment) {
         val fragManager = supportFragmentManager

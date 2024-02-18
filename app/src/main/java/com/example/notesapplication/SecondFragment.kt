@@ -1,5 +1,7 @@
 package com.example.notesapplication
 
+import android.content.ContentValues
+import android.database.Cursor
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,12 +14,17 @@ import androidx.core.view.size
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.auth.FirebaseAuth
 
 class SecondFragment : Fragment() {
     lateinit var notesList: ArrayList<NotesData>
     lateinit var recyclerView: RecyclerView
     lateinit var btnAddNote: FloatingActionButton
     lateinit var tvIsNotesFound: TextView
+    lateinit var dbHelper: DBHelper
+    lateinit var helloUser: TextView
+    lateinit var notesAppMssg: TextView
+    lateinit var auth: FirebaseAuth
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,19 +36,30 @@ class SecondFragment : Fragment() {
         recyclerView = view.findViewById(R.id.recyclerView)
         tvIsNotesFound = view.findViewById(R.id.tvIsNotesFound)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        helloUser = view.findViewById(R.id.helloUser)
+        notesAppMssg = view.findViewById(R.id.notesAppMssg)
+        auth = FirebaseAuth.getInstance()
 
-        notesList = arrayListOf<NotesData>()
-        notesList.add(NotesData("First Note", "About Personal Details"))
-        val adapter = MyAdapter(requireContext(), R.layout.notes_list, notesList)
+        dbHelper = DBHelper(requireContext(), null)
+
+        notesList = dbHelper.getNotes()
+        val adapter = MyAdapter(requireContext(), R.layout.notes_list, notesList, requireActivity() as MainActivity)
         recyclerView.adapter = adapter
+
+
 
         if (adapter != null && adapter.itemCount == 0) {
             recyclerView.visibility = View.INVISIBLE
             tvIsNotesFound.visibility = View.VISIBLE
+            helloUser.visibility = View.INVISIBLE
+            notesAppMssg.visibility = View.INVISIBLE
         }
         else {
             tvIsNotesFound.visibility = View.INVISIBLE
             recyclerView.visibility = View.VISIBLE
+            helloUser.visibility = View.VISIBLE
+            notesAppMssg.visibility = View.VISIBLE
+            helloUser.text = "Hi, " + auth.currentUser?.displayName
         }
 
         btnAddNote.setOnClickListener {

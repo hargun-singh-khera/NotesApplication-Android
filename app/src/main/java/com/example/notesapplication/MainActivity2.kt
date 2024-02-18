@@ -36,5 +36,4 @@ class MainActivity2 : AppCompatActivity() {
         name.text = intent.getStringExtra("name")
         email.text = intent.getStringExtra("email")
     }
-
 }
